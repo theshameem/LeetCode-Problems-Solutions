@@ -13,12 +13,8 @@ public:
                 cnt = 0;
                 ++i;
             } else {
-                while(i < seats.size()){
-                    if(seats[i] == 0) {
-                        ++i, ++cnt;
-                    } else {
-                        break;
-                    }
+                while(i < seats.size() && seats[i] == 0){
+                   ++i, ++cnt;
                 }
             }
         }
