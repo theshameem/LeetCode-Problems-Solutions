@@ -6,7 +6,7 @@ public:
             n -= x;
             x++, ++ans;
         }
-        if(n >= x) ++ans;
+        if(n == x) ++ans;
         return ans;
     }
 };
