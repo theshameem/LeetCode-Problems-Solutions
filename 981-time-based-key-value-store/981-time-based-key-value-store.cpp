@@ -11,7 +11,6 @@ public:
     
     string get(string key, int timestamp) {
         if(!mp.count(key)) return "";
-        string ans = "";
         
         auto it = mp[key].upper_bound(timestamp);
         if(it == mp[key].begin()) return "";
@@ -20,20 +19,6 @@ public:
         if(it != mp[key].end()) return it->second;
         
         return "";
-        
-
-        // for(auto i: mp[key]){
-        //     if(i.first == timestamp){
-        //         ans = i.second;
-        //         break;
-        //     } else if(i.first > timestamp) {
-        //         if(!ans.size()) ans = "";
-        //         break;
-        //     } else {
-        //         ans = i.second;
-        //     }
-        // }
-        return ans;
     }
 };
 
