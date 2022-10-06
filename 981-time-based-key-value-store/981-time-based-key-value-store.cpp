@@ -12,11 +12,11 @@ public:
     string get(string key, int timestamp) {
         if(!mp.count(key)) return "";
         
-        auto it = mp[key].upper_bound(timestamp);
-        if(it == mp[key].begin()) return "";
-        
-        it = prev(it);
-        if(it != mp[key].end()) return it->second;
+        for(int curTime = timestamp; curTime >= 1; curTime--){
+            if(mp[key].count(curTime)){
+                return mp[key][curTime];
+            }
+        }
         
         return "";
     }
