@@ -11,15 +11,8 @@
  */
 class Solution {
 public:
-    vector<int> ans;
-    void solve(TreeNode* root){
-        if(!root) return;
-        ans.push_back(root->val);
-        if(root->right) solve(root->right);
-        else if(root->left) solve(root->left);
-    }
-    
     vector<int> rightSideView(TreeNode* root) {
+        vector<int> ans;
         if(!root) return ans;
         
         queue<TreeNode*> Q;
