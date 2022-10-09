@@ -12,10 +12,10 @@
 class Solution {
 public:
     int mx = 0;
-    int solve(TreeNode* root, int depth){
+    int solve(TreeNode* root){
         if(!root) return 0;
-        int leftTree = solve(root->left, depth);
-        int rightTree = solve(root->right, depth);
+        int leftTree = solve(root->left);
+        int rightTree = solve(root->right);
         
         mx = max(mx, leftTree + rightTree);
         return max(leftTree, rightTree) + 1;
@@ -23,7 +23,7 @@ public:
     
     int diameterOfBinaryTree(TreeNode* root) {
         if(!root) return 0;
-        int ans = solve(root, 0);
+        int ans = solve(root);
         
         return mx;
     }
