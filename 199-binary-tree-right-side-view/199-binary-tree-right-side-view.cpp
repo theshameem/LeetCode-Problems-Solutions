@@ -20,7 +20,6 @@ public:
     }
     
     vector<int> rightSideView(TreeNode* root) {
-        if(!root) return ans;
         solve(root, 1);
         return ans;
     }
