@@ -8,8 +8,7 @@ public:
     }
     
     vector<int> findAnagrams(string s, string p) {
-        vector<int> F1(26, 0);
-        vector<int> F2(26, 0);
+        vector<int> F1(26, 0), F2(26, 0);
         
         for(auto i: p) F1[i - 'a']++;
         
