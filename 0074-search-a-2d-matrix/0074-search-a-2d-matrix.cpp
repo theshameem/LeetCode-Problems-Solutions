@@ -10,7 +10,6 @@ public:
             if(matrix[i][j] == target) return true;
             else if(matrix[i][j] > target) last = mid - 1;
             else first = mid + 1;
-            // cout << matrix[i][j] << endl;
         }
         return false;
     }
