@@ -12,16 +12,16 @@
 class Solution {
 public:
     int ans = 0;
-    void solve(TreeNode* root){
+    void solve(TreeNode* root, int flag){
         if(!root) return;
-        if(root->left && !root->left->left && !root->left->right) ans += root->left->val;
-        solve(root->left);
-        solve(root->right);
+        if(flag == 1 && !root->left && !root->right) ans += root->val;
+        solve(root->left, 1);
+        solve(root->right, 0);
     }
     
     int sumOfLeftLeaves(TreeNode* root) {
         if(!root) return 0;
-        solve(root);
+        solve(root, -1);
         return ans;
     }
 };
