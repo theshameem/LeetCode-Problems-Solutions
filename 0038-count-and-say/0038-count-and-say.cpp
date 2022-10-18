@@ -15,14 +15,12 @@ public:
     }
     
     string countAndSay(int n) {
-        vector<string> ans;
-        ans.push_back("1");
+        string ans = "1";
         
         for(int i = 1; i < n; i++){
-            string nThSay = findNTHSay(ans[i - 1]);
-            ans.push_back(nThSay);
+            ans = findNTHSay(ans);
         }
         
-        return ans[n - 1];
+        return ans;
     }
 };
