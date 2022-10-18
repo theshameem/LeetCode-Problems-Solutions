@@ -11,7 +11,7 @@ public:
         if(sum > reqTarget) return;
 
         if(sum == reqTarget){
-            sort(v.begin(), v.end());
+            // sort(v.begin(), v.end());
             if(mp[v] > 0) return;
             ans.push_back(v);
             mp[v]++;
