@@ -7,7 +7,7 @@ public:
     }
     
     vector<string> topKFrequent(vector<string>& words, int k) {
-        map<string , int> mp;
+        map<string, int> mp;
         
         for(auto i: words) mp[i]++;
         
@@ -24,7 +24,6 @@ public:
             ans.push_back(i.first);
             k--;
             if(k <= 0) break;
-            // cout << i.first << " " << i.second << endl;
         }
         
         return ans;
