@@ -18,16 +18,6 @@ public:
             }
         }
         
-        // for(auto i: mp){
-        //     if(i.second == mx){
-        //         if(i.first > ans){
-        //             ans = i.first;
-        //         }
-        //     } else if(i.second > mx){
-        //         mx = i.second;
-        //         ans = i.first;
-        //     }
-        // }
         return ans;
     }
 };
