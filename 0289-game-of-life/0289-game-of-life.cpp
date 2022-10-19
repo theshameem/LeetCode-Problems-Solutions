@@ -7,36 +7,16 @@ public:
         for(int i = 0; i < n; i++){
             for(int j = 0; j < m; j++){
                 int cnt = 0;
-                if(j + 1 < m){
-                    if(board[i][j + 1] == 1) ++cnt;
-                }
-                if(j - 1 >= 0){
-                    if(board[i][j - 1] == 1) ++cnt;
-                }
-                
-                if(i + 1 < n){
-                    if(board[i + 1][j] == 1) ++cnt;
-                    if(j + 1 < m){
-                        if(board[i + 1][j + 1] == 1) ++cnt;
-                    }
-                    if(j - 1 >= 0){
-                        if(board[i + 1][j - 1] == 1) ++cnt;
-                    }
-                }
-                
-                if(i - 1 >= 0){
-                    if(board[i - 1][j] == 1) ++cnt;
-                    if(j + 1 < m){
-                        if(board[i - 1][j + 1] == 1) ++cnt;
-                    }
-                    if(j - 1 >= 0){
-                        if(board[i - 1][j - 1] == 1) ++cnt;
+                for(int ii = max(0, i - 1); ii < min(i + 2, n); ii++){
+                    for(int jj = max(0, j - 1); jj < min(j + 2, m); jj++){
+                        if(board[ii][jj] == 1) ++cnt;
                     }
                 }
                 
                 if(board[i][j] == 0){
                     if(cnt == 3) ans[i][j] = 1;
                 } else {
+                    --cnt;
                     if(cnt < 2 || cnt > 3) ans[i][j] = 0;
                 }
             }
