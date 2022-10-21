@@ -8,16 +8,16 @@ public:
                     ++cntK;
                     ++j;
                 } else {
-                    ans = max(ans, j - i);
+                    // ans = max(ans, j - i);
                     if(nums[i] == 0) cntK--;
                     ++i;
                 }
                 
             } else {
-                ans = max(ans, j - i);
+                // ans = max(ans, j - i);
                 ++j;
             }
-            if(j == nums.size()) ans = max(ans, j - i);
+             ans = max(ans, j - i);
         }
         return ans;
     }
