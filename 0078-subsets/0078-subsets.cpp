@@ -9,10 +9,10 @@ public:
             ans.push_back(v);
             return;
         }    
-        solve(pos + 1, v);
         v.push_back(num[pos]);
         solve(pos + 1, v);
         v.pop_back();
+        solve(pos + 1, v);
     }
     
     vector<vector<int>> subsets(vector<int>& nums) {
