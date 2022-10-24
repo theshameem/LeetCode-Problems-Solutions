@@ -26,7 +26,7 @@ public:
         if(findNoDuplicate(s, ar[pos])){
             res += solve(pos + 1, s + ar[pos]);
         }
-        int res2 = solve(pos + 1, s + "");
+        int res2 = solve(pos + 1, s);
         
         return max(res, res2);
     }
