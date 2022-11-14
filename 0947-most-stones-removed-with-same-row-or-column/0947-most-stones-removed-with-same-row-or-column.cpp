@@ -19,7 +19,7 @@ public:
             mxRow = max(mxRow, i[0]);
             mxCol = max(mxCol, i[1]);
         }
-        for(int i = 0; i < mxRow + mxCol + 10; i++) parent[i] = i;
+        for(int i = 0; i <= mxRow + mxCol + 5; i++) parent[i] = i;
         
         unordered_map<int, int> stoneNodes;
         for(auto it: stones){
@@ -29,18 +29,12 @@ public:
             stoneNodes[nodeRow] = 1;
             stoneNodes[nodeCol] = 1;
         }
+        
         int cnt = 0;
         for(auto it: stoneNodes){
             if(findParent(it.first) == it.first) ++cnt;
         }
-        // for(int i = 0; i <= mxRow + mxCol; i++){
-        //     cout << parent[i] << " ";
-        // }
-        // cout << endl;
-        // unordered_set<int> stoneNode;
-        // for(int i = 0; i <= mxRow + mxCol; i++){
-        //     stoneNode.insert(findParent(i));
-        // }
+        
         return n - cnt;
     }
 };
