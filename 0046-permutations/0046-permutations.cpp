@@ -1,28 +1,20 @@
 class Solution {
-    private:
-        vector<vector<int>> allPermutations;
-        vector<int> takenValue;
 public:
-    void generatePermutations(vector<int> nums, vector<int> currPermutation){
-        if(currPermutation.size() == nums.size()){
-            allPermutations.push_back(currPermutation);
+    void genPermute(int pos, vector<int> nums, vector<vector<int>>& ans){
+        if(pos == nums.size()){
+            ans.push_back(nums);
             return;
         }
-        
-        for(int i = 0; i < nums.size(); i++){
-            if(takenValue[i] == 1) continue;
-            takenValue[i] = 1;
-            currPermutation.push_back(nums[i]);
-            generatePermutations(nums, currPermutation);
-            takenValue[i] = 0;
-            currPermutation.pop_back();
+        for(int i = pos; i < nums.size(); i++){
+            swap(nums[i], nums[pos]);
+            genPermute(pos + 1, nums, ans);
+            swap(nums[i], nums[pos]);
         }
     }
     
     vector<vector<int>> permute(vector<int>& nums) {
-        takenValue.resize(10, 0);
-        generatePermutations(nums, {});
-        
-        return allPermutations;
+        vector<vector<int>> ans;
+        genPermute(0, nums, ans);
+        return ans;
     }
 };
