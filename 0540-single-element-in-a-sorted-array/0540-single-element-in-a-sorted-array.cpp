@@ -1,14 +1,12 @@
 class Solution {
 public:
     int singleNonDuplicate(vector<int>& nums) {
-        map<int, int> mp;
+        int ans = nums[0];
         
-        for(auto i: nums) mp[i]++;
-        
-        for(auto i: mp){
-            if(i.second == 1) return i.first;
+        for(int i = 1; i < nums.size(); i++){
+            ans = ans ^ nums[i];
         }
         
-        return -1;
+        return ans;
     }
 };
